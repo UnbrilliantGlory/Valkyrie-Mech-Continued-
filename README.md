@@ -1,24 +1,24 @@
 I only modified the defs in version 1.6.
 
-charge spear 
--> Bullet_ChargeRifle
-Remove the tag MechanoidGunLongRange
-range 35 -> 32
-cooldownTime 2.1 -> 2.5
-warmupTime 2.5 -> 1.5
-reduce accuracy
+## charge spear 
+-> Bullet_ChargeRifle  
+Remove the tag MechanoidGunLongRange  
+range 35 -> 32  
+cooldownTime 2.1 -> 2.5  
+warmupTime 2.5 -> 1.5  
+reduce accuracy  
 
-stinger 
-power 16 -> 17.6
-armorPenetration 0.26 -> 0.42
+## stinger 
+power 16 -> 17.6  
+armorPenetration 0.26 -> 0.42  
 
-valkyrie
-Cost 3 -> 2
-baseBodySize 1 -> 0.95
-baseHealthScale 0.7 -> 1
-fist cooldownTime 2.0 -> 1.8
-MechGestator -> LargeMechGestator
+## valkyrie
+Cost 3 -> 2  
+baseBodySize 1 -> 0.95  
+baseHealthScale 0.7 -> 1  
+fist cooldownTime 2.0 -> 1.8  
+MechGestator -> LargeMechGestator  
 
 
-add Muzzle Flash Patches
-add Chinese Languages
+## add Muzzle Flash Patches  
+## add Chinese Languages
