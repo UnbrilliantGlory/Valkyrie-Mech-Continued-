@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+<!-- 女武神机械体基础定义（抽象类，不直接生成） -->
+<ThingDef ParentName="BaseMechanoidWalker" Name="Mech_Valkyrie" Abstract="True">   
+    <label>valkyrie</label>
+    <description>Highly agile winged mechanoid. Despite their infinite power sources, flying requires a
+  burst of power supplied by inner capacitors. The time they require to charge means flight is only
+  possible every minute or so. Some valkyries don't have wings and instead rely on other weaponry.</description>
+    <!-- 基础属性 -->
+    <statBases>
+      <MoveSpeed>5.7</MoveSpeed>          <!-- 移动速度 -->
+      <ArmorRating_Blunt>0.20</ArmorRating_Blunt>    <!-- 钝器护甲评级 -->
+      <ArmorRating_Sharp>0.40</ArmorRating_Sharp>    <!-- 锐器护甲评级 -->
+      <BandwidthCost MayRequire="Ludeon.Rimworld.Biotech">2</BandwidthCost>  <!-- 生物科技DLC带宽消耗 -->
+    </statBases>
+    <!-- 近战武器定义 -->
+    <tools>
+      <li>
+        <label>left fist</label>           <!-- 左拳 -->
+        <capacities>
+          <li>Blunt</li>                   <!-- 钝器伤害 -->
+        </capacities>
+        <power>12.0</power>                <!-- 伤害值 -->
+        <cooldownTime>1.8</cooldownTime>     <!-- 冷却时间（秒） -->
+        <linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>  <!-- 关联身体部位组 -->
+        <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>        <!-- 始终视为武器 -->
+      </li>
+      <li>
+        <label>right fist</label>          <!-- 右拳 -->
+        <capacities>
+          <li>Blunt</li>                   <!-- 钝器伤害 -->
+        </capacities>
+        <power>12.0</power>                <!-- 伤害值 -->
+        <cooldownTime>1.8</cooldownTime>     <!-- 冷却时间（秒） -->
+        <linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup> <!-- 关联身体部位组 -->
+        <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>        <!-- 始终视为武器 -->
+      </li>
+      <li>
+        <label>head</label>                <!-- 头部撞击 -->
+        <capacities>
+          <li>Blunt</li>                   <!-- 钝器伤害 -->
+        </capacities>
+        <power>8.5</power>                 <!-- 伤害值 -->
+        <cooldownTime>2</cooldownTime>     <!-- 冷却时间（秒） -->
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>  <!-- 关联头部攻击工具 -->
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>  <!-- 确保始终可用 -->
+        <chanceFactor>0.2</chanceFactor>   <!-- 使用概率因子（20%） -->
+      </li>
+    </tools>
+    <!-- 种族特性 -->
+    <race>
+      <body>Lancer</body>                  <!-- 身体结构 -->
+      <baseBodySize>0.95</baseBodySize> <!-- 基础体型大小 人类1.0 -->
+      <baseHealthScale>1</baseHealthScale>  <!-- 基础生命值缩放 -->
+      <soundMeleeHitPawn>Pawn_Melee_Punch_HitPawn</soundMeleeHitPawn>          <!-- 近战命中音效 -->
+      <soundMeleeHitBuilding>Pawn_Melee_Punch_HitBuilding_Generic</soundMeleeHitBuilding>  <!-- 击中建筑音效 -->
+      <soundMeleeMiss>Pawn_Melee_Punch_Miss</soundMeleeMiss>                   <!-- 近战未命中音效 -->
+    </race>
+    <!-- 组件：Vanilla Expanded Framework的护盾气泡 -->
+    <comps>
+        <li Class="VEF.Apparels.CompProperties_ShieldBubble">
+            <compClass>VEF.Abilities.CompAbilities</compClass>
+            <blockRangedAttack>False</blockRangedAttack>    <!-- 阻挡远程攻击 -->
+            <blockMeleeAttack>False</blockMeleeAttack>      <!-- 阻挡近战攻击 -->
+            <showAlways>False</showAlways>                  <!-- 始终显示 -->
+        </li>
+    </comps>    
+</ThingDef>
+
+<!-- 远程女武神变种 -->
+<ThingDef ParentName="Mech_Valkyrie">
+    <defName>Mech_RangedValkyrie</defName>  <!-- 内部标识符 -->
+    <label>ranged valkyrie</label>          <!-- 游戏内显示名称：远程女武神 -->
+</ThingDef>  
+
+<!-- 近战女武神变种 -->
+<ThingDef ParentName="Mech_Valkyrie">
+    <defName>Mech_MeleeValkyrie</defName>   <!-- 内部标识符 -->
+    <label>melee valkyrie</label>           <!-- 游戏内显示名称：近战女武神 -->
+</ThingDef>  
+
+<!-- 近战女武神的PawnKind定义 -->
+<PawnKindDef ParentName="BaseMechanoidKind">
+    <defName>Mech_MeleeValkyrie</defName>   <!-- 内部标识符 -->
+    <label>melee valkyrie</label>           <!-- 游戏内显示名称 -->
+    <race>Mech_MeleeValkyrie</race>         <!-- 关联的种族定义 -->
+    <combatPower>135</combatPower>          <!-- 战斗力量评级 蜈蚣400 静螳190 飞镗150 蝎蝽110-->
+    <!-- 生命阶段外观定义 -->
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Valkyrie/Valkyrie</texPath>      <!-- 纹理路径 -->
+          <graphicClass>Graphic_Multi</graphicClass>  <!-- 使用多部分图形 -->
+          <drawSize>1.8</drawSize>                  <!-- 绘制大小 -->
+          <shadowData>
+            <volume>(0.4, 0.8, 0.4)</volume>        <!-- 阴影体积 -->
+          </shadowData>
+          <shaderType>Transparent</shaderType>      <!-- 着色器类型：透明 -->
+        </bodyGraphicData>
+      </li>
+      <!-- 生物科技DLC兼容的生命阶段 -->
+      <li MayRequire="Ludeon.Rimworld.Biotech">
+        <bodyGraphicData>
+          <texPath>Valkyrie/Valkyrie</texPath>      <!-- 纹理路径 -->
+          <graphicClass>Graphic_Multi</graphicClass>  <!-- 使用多部分图形 -->
+          <drawSize>1.8</drawSize>                  <!-- 绘制大小 -->
+          <shadowData>
+            <volume>(0.4, 0.8, 0.4)</volume>        <!-- 阴影体积 -->
+          </shadowData>
+          <shaderType>Transparent</shaderType>      <!-- 着色器类型：透明 -->
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+    <weaponMoney>9999~9999</weaponMoney>    <!-- 武器价值 -->
+    <weaponTags><!-- 武器标签 -->
+        <li>MeleeValkyrieWeapon</li> <!-- 已通过补丁处理，因为我们已经为所有机械体添加此标签 -->
+    </weaponTags>
+    <!-- 能力扩展（已注释掉的能力赋予系统） -->
+    <!--<modExtensions>
+        <li Class="VEF.Abilities.PawnKindAbilityExtension">
+            <giveAbilities>
+                <li>MechValkyrieFlight</li>  赋予女武神飞行能力
+            </giveAbilities>
+            <giveRandomAbilities>false</giveRandomAbilities>  不赋予随机能力
+        </li>
+    </modExtensions>-->
+</PawnKindDef>
+  
+  <PawnKindDef ParentName="BaseMechanoidKind">
+    <defName>Mech_RangedValkyrie</defName>
+    <label>ranged valkyrie</label>
+    <race>Mech_RangedValkyrie</race>
+    <combatPower>200</combatPower>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>ValkyrieRanged/ValkyrieRanged</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.8</drawSize>
+          <shadowData>
+            <volume>(0.4, 0.8, 0.4)</volume>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+	<li MayRequire="Ludeon.Rimworld.Biotech">
+        <bodyGraphicData>
+          <texPath>ValkyrieRanged/ValkyrieRanged</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.8</drawSize>
+          <shadowData>
+            <volume>(0.4, 0.8, 0.4)</volume>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+    <weaponMoney>9999~9999</weaponMoney>
+    <weaponTags>
+        <li>ValkyrieGun</li>
+    </weaponTags>
+  </PawnKindDef>
+  
+<!-- 近战武器定义：女武神刺针 -->
+<ThingDef ParentName="BaseWeapon">
+    <defName>MeleeValkyrieStinger</defName> <!-- 内部标识符 -->
+    <label>stinger</label> <!-- 游戏内显示名称：刺针 -->
+    <description>A powerful mechanoid blade. Named for the wasp-like appearence of the mechanoids using
+  it.</description> <!-- 武器描述 -->
+    <techLevel>Spacer</techLevel> <!-- 科技等级要求：太空时代 -->
+    <graphicData>
+      <texPath>Weapons/Mechsword</texPath> <!-- 纹理资源路径 -->
+      <graphicClass>Graphic_Single</graphicClass> <!-- 使用单张贴图渲染 -->
+    </graphicData>
+    <tradeability>None</tradeability> <!-- 不可交易 -->
+    <destroyOnDrop>true</destroyOnDrop> <!-- 掉落时自动销毁（防止玩家获取） -->
+    <relicChance>0</relicChance> <!-- 不会生成为遗迹 -->
+    <statBases>
+      <MarketValue>1200</MarketValue> <!-- 基础市场价值 -->
+      <Mass>2.6</Mass> <!-- 武器重量（千克） -->
+    </statBases>
+    <weaponTags>
+      <li>MeleeValkyrieWeapon</li> <!-- 武器标签：女武神近战武器 -->
+    </weaponTags>
+    <!-- 近战工具定义 -->
+    <tools>
+      <li>
+        <label>blade</label> <!-- 刀刃 -->
+        <capacities>
+          <li>Stab</li> <!-- 穿刺伤害 -->
+          <li>Cut</li>  <!-- 切割伤害 -->
+        </capacities>
+        <power>17.6</power> <!-- 基础伤害值 -->
+        <cooldownTime>1.4</cooldownTime> <!-- 攻击冷却时间（秒） -->
+        <armorPenetration>0.42</armorPenetration><!-- 护甲穿透值 -->
+      </li>
+    </tools>
+    <!-- 特殊动词定义：跳跃攻击 -->
+    <verbs>
+        <li>
+            <verbClass>MVCF.Verbs.Verb_CooldownJump</verbClass> <!-- 使用MVCF框架的冷却跳跃动词 -->
+            <label>jump</label> <!-- 显示名称：跳跃 -->
+            <violent>true</violent> <!-- 属于暴力行为 -->
+            <hasStandardCommand>true</hasStandardCommand> <!-- 显示标准命令 -->
+            <forceNormalTimeSpeed>false</forceNormalTimeSpeed> <!-- 不强制正常时间流速 -->
+            <warmupTime>0.5</warmupTime> <!-- 技能预热时间（秒） -->
+            <!--<warmupEffecter>JumpWarmupEffect</warmupEffecter>--> <!-- 预热特效（已注释） -->
+            <requireLineOfSight>true</requireLineOfSight> <!-- 需要视线才能使用 -->
+            <range>21</range> <!-- 跳跃范围 -->
+            <!--<canFireIndependently>true</canFireIndependently>--> <!-- 可独立发射（已注释） -->
+            <!--<ticksBetweenBurstShots>999999</ticksBetweenBurstShots>--> <!-- 连发射击间隔（已注释） -->
+            <!--<burstShotCount>2</burstShotCount>--> <!-- 连发次数（已注释） -->
+            <targetParams>
+              <canTargetLocations>false</canTargetLocations> <!-- 不能以地点为目标 -->
+              <canTargetPawns>true</canTargetPawns> <!-- 可以以其他单位为目标 -->
+              <canTargetBuildings>false</canTargetBuildings> <!-- 不能以建筑为目标 -->
+            </targetParams>
+        </li>
+    </verbs>
+</ThingDef>
+  
+  <ThingDef ParentName="BaseWeapon">
+    <defName>MeleeValkyrieStinger_Leapless</defName>
+    <label>stinger</label>
+    <description>A powerful mechanoid blade. Named for the wasp-like appearence of the mechanoids using it.</description>
+    <techLevel>Spacer</techLevel>
+    <graphicData>
+      <texPath>Weapons/Mechsword</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <tradeability>None</tradeability>
+    <destroyOnDrop>true</destroyOnDrop>
+    <relicChance>0</relicChance>
+    <statBases>
+      <MarketValue>1400</MarketValue>
+      <Mass>2.6</Mass>
+    </statBases>
+    <weaponTags>
+      <li>MeleeValkyrieWeapon_Leapless</li>
+    </weaponTags>
+    <tools>
+      <li>
+        <label>blade</label>
+        <capacities>
+          <li>Stab</li>
+          <li>Cut</li>
+        </capacities>
+        <power>17.6</power>
+        <cooldownTime>1.4</cooldownTime>
+        <armorPenetration>0.42</armorPenetration>
+      </li>
+    </tools>
+  </ThingDef>
+  
+  <ThingDef ParentName="PawnFlyerBase">
+    <defName>PawnJumper_ValkyrieFlight</defName>
+    <thingClass>PawnFlyer</thingClass>
+    <pawnFlyer>
+      <flightDurationMin>0.5</flightDurationMin>
+      <flightSpeed>12</flightSpeed>
+    </pawnFlyer>
+  </ThingDef>
+  
+<ThingDef ParentName="BaseGunWithQuality">
+    <!-- 定义内部标识符 -->
+    <defName>Gun_ValkyrieChargeSpear</defName>
+    <!-- 游戏内显示名称 -->
+    <label>charge spear</label>
+    <!-- 武器描述文本 -->
+    <description>A long-range weapon used by mechanoids. Fires three powerful charged projectiles in a short burst.</description>
+    <!-- 科技等级要求：太空时代 -->
+    <techLevel>Spacer</techLevel>
+    <graphicData>
+        <!-- 纹理资源路径 -->
+        <texPath>Weapons/ChargeSpear</texPath>
+        <!-- 使用单张贴图渲染 -->
+        <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <!-- 不可交易 -->
+    <tradeability>None</tradeability>
+    <!-- 掉落时自动销毁（防止玩家获取） -->
+    <destroyOnDrop>true</destroyOnDrop>
+    <!-- 不会生成为遗迹 -->
+    <relicChance>0</relicChance>
+    <statBases>
+        <!-- 基础市场价值 -->
+        <MarketValue>1400</MarketValue>
+        <!-- 武器重量（千克） -->
+        <Mass>2.6</Mass>
+        <!-- 不同距离的精度系数（0-1） -->
+        <AccuracyTouch>0.55</AccuracyTouch>
+        <AccuracyShort>0.7</AccuracyShort>
+        <AccuracyMedium>0.65</AccuracyMedium>
+        <AccuracyLong>0.55</AccuracyLong>
+        <!-- 射击冷却时间（秒） -->
+        <RangedWeapon_Cooldown>2.5</RangedWeapon_Cooldown>
+    </statBases>
+    <weaponTags>
+        <!-- 武器标签：机械族长程武器 -->
+        <!-- <li>MechanoidGunLongRange</li> -->
+        <!-- 武器标签：女武神专属武器 -->
+        <li>ValkyrieGun</li>
+    </weaponTags>
+    <weaponClasses>
+        <!-- 武器分类：重型远程 -->
+        <li>RangedHeavy</li>
+        <!-- 武器分类：长程射击 -->
+        <li>LongShots</li>
+    </weaponClasses>
+    <!-- 射击行为定义 -->
+    <verbs>
+        <li>
+            <!-- 使用标准射击动词 -->
+            <verbClass>Verb_Shoot</verbClass>
+            <!-- 显示标准射击命令 -->
+            <hasStandardCommand>true</hasStandardCommand>
+            <!-- 默认发射的弹药类型 -->
+       <!-- <defaultProjectile>Bullet_NeedleGun</defaultProjectile> --> <!-- 针刺 -->
+            <defaultProjectile>Bullet_ChargeRifle</defaultProjectile> <!-- 电荷弹，比如电荷步枪 -->
+            <!-- 射击预热时间（秒） -->
+            <warmupTime>1.5</warmupTime>
+            <!-- 最大射程 -->
+            <range>32</range>
+            <!-- 连发次数 -->
+            <burstShotCount>3</burstShotCount>
+            <!-- 连发射击间隔（嘀嗒数，1秒=60嘀嗒） -->
+            <ticksBetweenBurstShots>11</ticksBetweenBurstShots>
+            <!-- 射击音效 -->
+       <!-- <soundCast>ChargeLance_Fire</soundCast> -->
+            <soundCast>Shot_ChargeRifle</soundCast> <!-- 电荷步枪用 -->
+            <!-- 射击尾声音效 -->
+       <!-- <soundCastTail>GunTail_Heavy</soundCastTail> -->
+            <soundCastTail>GunTail_Medium</soundCastTail> <!-- 电荷步枪用 -->
+            <!-- 枪口闪光缩放比例 -->
+            <muzzleFlashScale>9</muzzleFlashScale>
+        </li>
+    </verbs>
+    <!-- 近战工具定义（用于近战攻击） -->
+    <tools>
+        <li>
+            <label>barrel</label>
+            <!-- 近战伤害类型 -->
+            <capacities>
+                <li>Blunt</li>  <!-- 钝器伤害 -->
+                <li>Poke</li>   <!-- 穿刺伤害 -->
+            </capacities>
+            <!-- 基础伤害值 -->
+            <power>9.0</power>
+            <!-- 近战攻击冷却时间 -->
+            <cooldownTime>2.0</cooldownTime>
+        </li>
+    </tools>
+</ThingDef>
+  
+  <!--<VEF.Abilities.AbilityDef>
+      <defName>MechValkyrieFlight</defName>
+      <label>valkyrie's flight</label>
+      <description>A valkyrie leaps at you.</description>
+      <iconPath>UI/EmptyImage</iconPath>	
+	  <abilityClass>VFECore.Abilities.Ability_Flight</abilityClass>
+	  <castTime>0</castTime>
+	  <cooldownTime>600</cooldownTime>	
+	  <targetMode>Pawn</targetMode>
+	  <range>24.9</range>
+  </VEF.Abilities.AbilityDef>-->
+
+</Defs>

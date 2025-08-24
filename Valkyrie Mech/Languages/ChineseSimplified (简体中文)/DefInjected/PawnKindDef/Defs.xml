@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: melee valkyrie -->
+  <Mech_MeleeValkyrie.label>强袭女武神</Mech_MeleeValkyrie.label>
+
+  <!-- EN: ranged valkyrie -->
+  <Mech_RangedValkyrie.label>虹光女武神</Mech_RangedValkyrie.label>
+
+</LanguageData>

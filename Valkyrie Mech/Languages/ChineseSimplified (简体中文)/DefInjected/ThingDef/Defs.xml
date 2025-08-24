@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData> 
+  <!-- EN: charge spear -->
+  <Gun_ValkyrieChargeSpear.label>电荷光矛</Gun_ValkyrieChargeSpear.label>
+
+  <!-- EN: A long-range weapon used by mechanoids. Fires three powerful charged projectiles in a
+  short burst. -->
+  <Gun_ValkyrieChargeSpear.description>机械体使用的远程武器，可在短时间内连续发射三枚强力电荷射弹。</Gun_ValkyrieChargeSpear.description>
+
+  <!-- EN: barrel -->
+  <Gun_ValkyrieChargeSpear.tools.barrel.label>枪管</Gun_ValkyrieChargeSpear.tools.barrel.label>
+
+  <!-- EN: charge spear -->
+  <Gun_ValkyrieChargeSpear.verbs.Verb_Shoot.label>电荷光矛</Gun_ValkyrieChargeSpear.verbs.Verb_Shoot.label>
+
+  <!-- EN: melee valkyrie -->
+  <Mech_MeleeValkyrie.label>强袭女武神</Mech_MeleeValkyrie.label>
+
+  <!-- EN: Highly agile winged mechanoid. Despite their infinite power sources, flying requires a
+  burst of power supplied by inner capacitors. The time they require to charge means flight is only
+  possible every minute or so. Some valkyries don't have wings and instead rely on other weaponry. -->
+  <Mech_MeleeValkyrie.description>高敏捷性的有翼机械体。虽然拥有无限能源，但飞行需要内部电容器瞬间释放能量。充能所需时间使其每分钟仅能飞行一次。部分女武神没有翅膀，转而依赖其他武器系统。</Mech_MeleeValkyrie.description>
+
+  <!-- EN: left fist -->
+  <Mech_MeleeValkyrie.tools.left_fist.label>左拳</Mech_MeleeValkyrie.tools.left_fist.label>
+
+  <!-- EN: right fist -->
+  <Mech_MeleeValkyrie.tools.right_fist.label>右拳</Mech_MeleeValkyrie.tools.right_fist.label>
+
+  <!-- EN: head -->
+  <Mech_MeleeValkyrie.tools.head.label>头部</Mech_MeleeValkyrie.tools.head.label>
+
+  <!-- EN: ranged valkyrie -->
+  <Mech_RangedValkyrie.label>虹光女武神</Mech_RangedValkyrie.label>
+
+  <!-- EN: Highly agile winged mechanoid. Despite their infinite power sources, flying requires a
+  burst of power supplied by inner capacitors. The time they require to charge means flight is only
+  possible every minute or so. Some valkyries don't have wings and instead rely on other weaponry. -->
+  <Mech_RangedValkyrie.description>高敏捷性的有翼机械体。部分女武神没有翅膀，转而依赖远程武器系统。</Mech_RangedValkyrie.description>
+
+  <!-- EN: left fist -->
+  <Mech_RangedValkyrie.tools.left_fist.label>左拳</Mech_RangedValkyrie.tools.left_fist.label>
+
+  <!-- EN: right fist -->
+  <Mech_RangedValkyrie.tools.right_fist.label>右拳</Mech_RangedValkyrie.tools.right_fist.label>
+
+  <!-- EN: head -->
+  <Mech_RangedValkyrie.tools.head.label>头部</Mech_RangedValkyrie.tools.head.label>
+
+  <!-- EN: stinger -->
+  <MeleeValkyrieStinger.label>刺针 跳跃</MeleeValkyrieStinger.label>
+
+  <!-- EN: A powerful mechanoid blade. Named for the wasp-like appearence of the mechanoids using
+  it. -->
+  <MeleeValkyrieStinger.description>强力机械刀刃，因使用该武器的机械体形似黄蜂而得名。</MeleeValkyrieStinger.description>
+
+  <!-- EN: blade -->
+  <MeleeValkyrieStinger.tools.blade.label>刀刃</MeleeValkyrieStinger.tools.blade.label>
+
+  <!-- EN: jump -->
+  <MeleeValkyrieStinger.verbs.jump.label>跳跃</MeleeValkyrieStinger.verbs.jump.label>
+
+  <!-- EN: stinger -->
+  <MeleeValkyrieStinger_Leapless.label>刺针</MeleeValkyrieStinger_Leapless.label>
+
+  <!-- EN: A powerful mechanoid blade. Named for the wasp-like appearence of the mechanoids using
+  it. -->
+  <MeleeValkyrieStinger_Leapless.description>强力机械刀刃，因使用该武器的机械体形似黄蜂而得名。</MeleeValkyrieStinger_Leapless.description>
+
+  <!-- EN: blade -->
+  <MeleeValkyrieStinger_Leapless.tools.blade.label>刀刃</MeleeValkyrieStinger_Leapless.tools.blade.label>
+
+  <!-- EN: flying -->
+  <PawnJumper_ValkyrieFlight.label>飞行</PawnJumper_ValkyrieFlight.label>
+
+</LanguageData>

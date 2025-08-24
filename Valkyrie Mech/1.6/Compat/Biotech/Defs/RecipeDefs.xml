@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+ <RecipeDef ParentName="MediumMechanoidRecipe" Name="Valkyrie_Recipe" Abstract="True">    
+    <label>gestate valkyrie</label>
+    <description>Gestate a valkyrie mechanoid.</description>
+    <ingredients Inherit="False">
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Steel</li>
+          </thingDefs>
+        </filter>
+        <count>75</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Plasteel</li>
+          </thingDefs>
+        </filter>
+        <count>75</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>ComponentIndustrial</li>
+          </thingDefs>
+        </filter>
+        <count>4</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>SubcoreRegular</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>   
+  </RecipeDef>
+
+<RecipeDef ParentName="Valkyrie_Recipe">
+    <defName>Ranged_Valkyrie</defName>
+    <label>gestate ranged valkyrie</label>
+    <description>Gestate a ranged valkyrie mechanoid.</description>   
+    <products>
+      <Mech_RangedValkyrie>1</Mech_RangedValkyrie>
+    </products>
+    <descriptionHyperlinks>
+      <ThingDef>Mech_RangedValkyrie</ThingDef>
+    </descriptionHyperlinks>
+  </RecipeDef>
+
+<RecipeDef ParentName="Valkyrie_Recipe">
+    <defName>Melee_Valkyrie</defName>
+    <label>gestate melee valkyrie</label>
+    <description>Gestate a ranged valkyrie mechanoid.</description>   
+     <products>
+      <Mech_MeleeValkyrie>1</Mech_MeleeValkyrie>
+    </products>
+    <descriptionHyperlinks>
+      <ThingDef>Mech_MeleeValkyrie</ThingDef>
+    </descriptionHyperlinks>
+  </RecipeDef>
+
+</Defs>

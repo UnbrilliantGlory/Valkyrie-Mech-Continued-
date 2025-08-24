@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+ <RecipeDef ParentName="MediumMechanoidRecipe">
+    <defName>Valkyrie</defName>
+    <label>gestate valkyrie</label>
+    <description>Gestate a valkyrie mechanoid.</description>
+    <ingredients Inherit="False">
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Steel</li>
+          </thingDefs>
+        </filter>
+        <count>75</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Plasteel</li>
+          </thingDefs>
+        </filter>
+        <count>75</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>ComponentIndustrial</li>
+          </thingDefs>
+        </filter>
+        <count>4</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>SubcoreRegular</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <products>
+      <Mech_Valkyrie>1</Mech_Valkyrie>
+    </products>
+    <descriptionHyperlinks>
+      <ThingDef>Mech_Valkyrie</ThingDef>
+    </descriptionHyperlinks>
+  </RecipeDef>
+
+</Defs>

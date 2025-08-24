@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: gestate melee valkyrie -->
+  <Melee_Valkyrie.label>培育强袭女武神</Melee_Valkyrie.label>
+
+  <!-- EN: Gestate a ranged valkyrie mechanoid. -->
+  <Melee_Valkyrie.description>培育一个近战女武神机械体。</Melee_Valkyrie.description>
+
+  <!-- EN: Gestating mech. -->
+  <Melee_Valkyrie.jobString>机械体培育中</Melee_Valkyrie.jobString>
+
+  <!-- EN: gestate ranged valkyrie -->
+  <Ranged_Valkyrie.label>培育虹光女武神</Ranged_Valkyrie.label>
+
+  <!-- EN: Gestate a ranged valkyrie mechanoid. -->
+  <Ranged_Valkyrie.description>培育一个远程女武神机械体。</Ranged_Valkyrie.description>
+
+  <!-- EN: Gestating mech. -->
+  <Ranged_Valkyrie.jobString>机械体培育中</Ranged_Valkyrie.jobString>
+
+</LanguageData>
