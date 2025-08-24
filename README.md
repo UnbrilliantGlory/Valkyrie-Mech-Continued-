@@ -1,8 +1,8 @@
 I only modified the defs in version 1.6.
 
 charge spear 
- -> Bullet_ChargeRifle
-Remove the tag <li>MechanoidGunLongRange</li>
+-> Bullet_ChargeRifle
+Remove the tag MechanoidGunLongRange
 range 35 -> 32
 cooldownTime 2.1 -> 2.5
 warmupTime 2.5 -> 1.5
